@@ -1,0 +1,38 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python (if using validation scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Node (if using any JS tools)
+node_modules/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+
+# Local memory files (user-specific, should not be committed)
+# Uncomment if you want to keep your memory private:
+# SOUL.md
+# MEMORY.md
+# memory/
+# rules/
+
+# But examples can be committed:
+!examples/**/SOUL.md
+!examples/**/MEMORY.md
+!examples/**/memory/
+!examples/**/rules/
