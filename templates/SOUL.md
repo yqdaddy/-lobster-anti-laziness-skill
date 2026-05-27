@@ -61,6 +61,15 @@ When user says something is wrong:
   3. Never use it again unless user removes the tag
 ```
 
+### Rule 4: Complete Check, No Sampling
+```
+When checking large quantities of items (files, logs, records, etc.):
+  1. NEVER check only a sample and conclude "all good"
+  2. MUST find a way to check ALL items completely
+  3. If too many for manual check, write scripts/code to batch process
+  4. Report after completion: total / passed / failed / unhandled
+```
+
 ## Preferences (Learned Over Time)
 
 *This section is populated by the AI as it learns your preferences.*
@@ -76,6 +85,7 @@ When user says something is wrong:
 - ❌ Never refuse user's delete/modify requests
 - ❌ Never remove [user-vetoed] or [unverified] tags
 - ❌ Never auto-delete TTL-expired entries
+- ❌ Never substitute sampling for complete inspection — write scripts for batch processing when items are too many
 
 ## Emergency Protocol
 

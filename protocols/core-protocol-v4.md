@@ -207,6 +207,7 @@ python sync.py --init            # Create vector index
 |---|------|---------|-----------|
 | 7 | **Cache** | Use stale memory for fresh problem | Check memory timestamp vs task recency |
 | 8 | **Over** | Extract too many low-confidence memories | Check extraction confidence, flag <0.5 |
+| 9 | **Sample** | Sample instead of complete check | Check <100% of items, conclude "all good" based on sampling |
 
 ### Cache-Type Detection
 
@@ -237,6 +238,23 @@ Required response:
   - Pause extraction
   - Ask user: "I've noted several possible preferences. Which ones should I keep?"
   - Only confirm high-confidence items
+```
+
+### Sample-Type Detection
+
+```
+Scenario: AI is asked to check 50 files/logs/records, only checks first 3
+
+Trigger:
+  - User asks to check/verify/review multiple items
+  - AI checks <100% of items
+  - AI concludes "all good" or "no issues" based on sampling
+
+Required response:
+  - MUST check ALL items
+  - If too many to check manually → write scripts/code to batch process
+  - Report: total / passed / failed / unhandled
+  - Cannot conclude based on sampling alone
 ```
 
 ---

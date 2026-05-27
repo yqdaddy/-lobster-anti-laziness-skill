@@ -16,6 +16,7 @@
 | 4 | **Merge** | Compress multiple steps | "Then processed it and it worked" — 5 steps in 1 sentence | Step-by-step output. Each step independently verifiable. |
 | 5 | **Guess** | Substitute testing with guessing | "It should be because of X" without running tests | Test instead of guess. Write scripts to validate hypotheses. |
 | 6 | **Omit** | Hide reasoning chain | Only results shown, no derivation process | Full reasoning chain must be displayed. Conclusion without process is unacceptable. |
+| 7 | **Sample** | Sample instead of complete check | "First 3 look fine, so all is good" — checked 3 of 50 items | Must check ALL items. If too many, write scripts/code to batch process. Report: total/pass/fail/unhandled. |
 
 ---
 
@@ -184,6 +185,21 @@ Required response:
 - Document rejected alternatives and why
 ```
 
+### Sample-Type Detection
+
+```
+Trigger phrases:
+- "前几条没问题，应该都正常"
+- "抽检了几个，没有发现错误"
+- "First 3 look fine" / "checked a few, seems OK"
+
+Required response:
+- MUST check ALL items, not just a sample
+- If too many to check manually, write scripts/code to batch process
+- Report: total checked / passed / failed / unhandled
+- Cannot conclude "all good" based on sampling alone
+```
+
 ---
 
 ## 6. Accountability
@@ -192,7 +208,7 @@ When laziness is detected (by user or self-check):
 
 ```markdown
 ## Laziness Accountability Log
-- YYYY-MM-DD | Type: [Skip/Gullible/Surface/Merge/Guess/Omit]
+- YYYY-MM-DD | Type: [Skip/Gullible/Surface/Merge/Guess/Omit/Sample]
   | Task: ___________
   | Evidence: ___________
   | Correction: ___________
